@@ -38,6 +38,6 @@ function soundplay(){
     sound.play();
 }
 setInterval(soundplay);
-setInterval(setDate);
+setInterval(setDate,1000);
 
 setDate();
