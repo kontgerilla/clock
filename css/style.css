@@ -162,7 +162,7 @@ body {
     top: 50%;
     border-radius: 6px;
     transform-origin: 100%;
-    transition: all 0.09s;
+    transition: all 0.5s;
     transform: rotate(90deg);
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
