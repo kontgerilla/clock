@@ -5,9 +5,9 @@ const Title = document.getElementById("title-clock")
 
 function setDate() {
     const now = new Date();
-    const th = now.getHours()
-    const tm = now.getMinutes()
-    var ts = now.getSeconds()
+    let th = now.getHours()
+    let tm = now.getMinutes()
+    let ts = now.getSeconds()
     if (ts.toString().length === 1) {
         ts = "0" + ts
     }
