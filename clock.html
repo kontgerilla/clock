@@ -1,0 +1,66 @@
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/clock.ico">
+    <title id="title-clock">CLOCK</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="clock">
+    <div class="outer-clock-face">
+        <div class="marking marking-one"></div>
+        <div class="marking marking-two"></div>
+        <div class="marking marking-three"></div>
+        <div class="marking marking-four"></div>
+        <div class="marking marking-five"></div>
+        <div class="marking marking-six"></div>
+        <div class="marking marking-seven"></div>
+        <div class="marking marking-eight"></div>
+        <div class="marking marking-nine"></div>
+        <div class="marking marking-ten"></div>
+        <div class="inner-clock-face">
+            <div id="hourh" class="hand hour-hand"></div>
+            <div id="minh" class="hand min-hand"></div>
+            <div id="sech" class="hand second-hand"></div>
+        </div>
+    </div>
+    <script>
+        const secondHand = document.querySelector('.second-hand');
+        const minsHand = document.querySelector('.min-hand');
+        const hourHand = document.querySelector(".hour-hand")
+        const Title = document.getElementById("title-clock")
+
+        function setDate() {
+            const now = new Date();
+            const th = now.getHours()
+            const tm = now.getMinutes()
+            var ts = now.getSeconds()
+            if (ts.toString().length === 1){
+                ts = "0" + ts
+            }
+
+            Title.innerText = th + ":" + tm + ":" + ts
+
+            const seconds = now.getSeconds();
+            const secondsDegrees = ((seconds / 60) * 360) + 90;
+            console.log(secondsDegrees)
+            secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+            const mins = now.getMinutes();
+            const minsDegrees = ((mins / 60) * 360) + ((seconds / 60) * 6) + 90;
+            minsHand.style.transform = `rotate(${minsDegrees}deg)`;
+
+            const hour = now.getHours();
+            const hourDegrees = ((hour / 12) * 360) + ((mins / 60) * 30) + 90;
+            hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+        }
+
+        setInterval(setDate, 900);
+
+        setDate();
+    </script>
+
+</div>
+</body>
+</html>
