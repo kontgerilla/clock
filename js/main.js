@@ -11,6 +11,12 @@ function setDate() {
     if (ts.toString().length === 1) {
         ts = "0" + ts
     }
+    if (tm.toString().length === 1) {
+        tm = "0" + tm
+    }
+    if (th.toString().length === 1) {
+        th = "0" + th
+    }
 
     Title.innerText = th + ":" + tm + ":" + ts
 
